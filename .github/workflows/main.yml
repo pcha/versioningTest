@@ -1,0 +1,27 @@
+name: New Relase
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Generate Changelog and Version
+        id: changelog
+        uses: TriPSs/conventional-changelog-action@v6
+        with:
+          release-count: 1
+          skip-on-empty: true
+          skip-version-file: true
+          skip-commit: true
+          create-summary: true
+      - name: Release
+        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.changelog.outputs.tag }}
+          body: ${{ steps.changelog.outputs.clean_changelog }}
