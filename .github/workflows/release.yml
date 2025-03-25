@@ -14,6 +14,7 @@ jobs:
         id: changelog
         uses: TriPSs/conventional-changelog-action@v6
         with:
+          preset: conventionalcommits
           release-count: 1
           skip-on-empty: true
           skip-version-file: true
