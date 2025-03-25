@@ -19,7 +19,6 @@ jobs:
           skip-version-file: true
           skip-commit: true
           create-summary: true
-          skip-bump: true
       - name: Release
         if: ${{ steps.changelog.outputs.skipped == 'false' }}
         uses: ncipollo/release-action@v1
