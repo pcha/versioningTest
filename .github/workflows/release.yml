@@ -9,7 +9,6 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - name: Generate Changelog and Version
         id: changelog
         uses: TriPSs/conventional-changelog-action@v6
