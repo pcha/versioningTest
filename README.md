@@ -1,2 +1,3 @@
 # versioningTest
-testintg TriPSs/conventional-changelog-action@v6
+
+Repo created to test TriPSs/conventional-changelog-action@v6
